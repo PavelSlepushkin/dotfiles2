@@ -1,4 +1,4 @@
-export PS1='\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+export PS1='\e[32m\]\u@\h \[\e[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ '
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 if [ -f $HOME/.bash_aliases ]
 then
@@ -11,10 +11,10 @@ pathadd() {
     PATH="$1${PATH:+":$PATH"}"
   fi
 }
-pathadd $HOME/bin
 pathadd $HOME/bin/rancher
+pathadd $HOME/bin
 #curl ssl fix
-export CURL_CA_BUNDLE=/etc/ssl/certs/ca-bundle.crt
+#export CURL_CA_BUNDLE=/etc/ssl/certs/ca-bundle.crt
 #k8s autocomplete
 source <(kubectl completion bash)
 alias k=kubectl
