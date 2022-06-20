@@ -11,7 +11,7 @@ dotfiles remote add origin git@devcloud.ubs.net:slepushp/dotfiles.git
 ```sh
 git clone --separate-git-dir=$HOME/.dotfiles git@devcloud.ubs.net:slepushp/dotfiles.git dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' dotfiles-tmp/ $HOME/
-rm --recursive my-dotfiles-tmp
+rm --recursive dotfiles-tmp
 ```
 
 ## Configuration
@@ -27,3 +27,7 @@ dotfiles add .gitconfig
 dotfiles commit -m 'Add gitconfig'
 dotfiles push
 ```
+
+### Decription:
+https://www.atlassian.com/git/tutorials/dotfiles
+

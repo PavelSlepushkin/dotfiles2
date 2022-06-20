@@ -1,3 +1,4 @@
+source /usr/lib/git-core/git-sh-prompt
 export PS1='\e[32m\]\u@\h \[\e[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ '
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 if [ -f $HOME/.bash_aliases ]
