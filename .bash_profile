@@ -5,18 +5,23 @@ if [ -f $HOME/.bash_aliases ]
 then
   source $HOME/.bash_aliases
 fi
-
+# ssh autocomplete
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
+# Path
 pathadd() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     PATH="$1${PATH:+":$PATH"}"
   fi
 }
+pathadd /usr/local/go/bin
 pathadd $HOME/bin/rancher
 pathadd $HOME/bin
-#curl ssl fix
-#export CURL_CA_BUNDLE=/etc/ssl/certs/ca-bundle.crt
 #k8s autocomplete
 source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
+# Golang for ubs
+export GONOPROXY=*.ubs.,*.swissbank. \
+export GOPROXY=https://it4it-nexus-tp-repo.swissbank.com/repository/group-lib-golang-go-oss,direct
+export GOPRIVATE=*.ubs.net,*.swissbank.com
+export GOSUMDB=off
