@@ -14,12 +14,15 @@ pathadd() {
   fi
 }
 pathadd /usr/local/go/bin
+pathadd $HOME/go/bin
 pathadd $HOME/bin/rancher
 pathadd $HOME/bin
 #k8s autocomplete
 source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
+#kubens alias
+alias kubens='kubectl config set-context --current --namespace '
 # Golang for ubs
 export GONOPROXY=*.ubs.,*.swissbank. \
 export GOPROXY=https://it4it-nexus-tp-repo.swissbank.com/repository/group-lib-golang-go-oss,direct
