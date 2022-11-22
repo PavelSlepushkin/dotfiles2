@@ -13,6 +13,15 @@ pathadd() {
     PATH="$1${PATH:+":$PATH"}"
   fi
 }
+pathrm() {
+  # Delete path by parts so we can never accidentally remove sub paths
+  if [ "$PATH" == "$1" ] ; then PATH="" ; fi
+  PATH=${PATH//":$1:"/":"} # delete any instances in the middle
+  PATH=${PATH/#"$1:"/} # delete any instance at the beginning
+  PATH=${PATH/%":$1"/} # delete any instance in the at the end
+}
+
+pathadd /usr/local/kubebuilder
 pathadd /usr/local/go/bin
 pathadd $HOME/go/bin
 pathadd $HOME/bin/rancher
