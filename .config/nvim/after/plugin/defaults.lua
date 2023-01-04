@@ -28,6 +28,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 --]]
 -- Ctrl-s for save
+require('lualine').setup {
+ sections = {
+  lualine_c = {
+    {
+      'filename',
+      file_status = true,      -- Displays file status (readonly status, modified status)
+      path = 1,                -- 0: Just the filename
+    }
+  }
+ }
+ }
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 -- leader-s for search and replace current word
 --vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
