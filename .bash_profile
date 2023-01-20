@@ -5,6 +5,10 @@ if [ -f $HOME/.bash_aliases ]
 then
   source $HOME/.bash_aliases
 fi
+set +o emacs
+set -o vi
+#bind -m vi-command ".":yank-last-argument
+bind C-_:insert-last-argument
 # ssh autocomplete
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
 # Path
