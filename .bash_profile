@@ -30,6 +30,7 @@ pathadd /usr/local/go/bin
 pathadd $HOME/go/bin
 pathadd $HOME/bin/rancher
 pathadd $HOME/bin
+pathadd $HOME/.local/bin
 #k8s autocomplete
 source <(kubectl completion bash)
 alias k=kubectl
