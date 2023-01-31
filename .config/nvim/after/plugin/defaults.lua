@@ -49,5 +49,14 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end,
 })
 --]]
+--autosave command - trying as of 2023-01-31
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function()
+    if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+      vim.api.nvim_command('silent update')
+    end
+  end,
+})
+
 
 vim.keymap.set('n', '<leader>n', function() vim.o.rnu = not vim.o.rnu end, { desc = 'Toggle relative line [N]umbers' })
