@@ -1,0 +1,7 @@
+alias d='date -Idate'
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias h='history'
+alias k='kubectl'
+alias kubens='kubectl config set-context --current --namespace '
+alias vi='nvim'
+alias vl='set -x ;export VAULT_ADDR="https://vault.eu.eva.ubsdev.net"; export VAULT_NAMESPACE=AT4706; vault login -method=ldap username=slepushp; set +x'

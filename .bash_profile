@@ -24,12 +24,14 @@ pathrm() {
   PATH=${PATH/#"$1:"/} # delete any instance at the beginning
   PATH=${PATH/%":$1"/} # delete any instance in the at the end
 }
+pathrm /usr/local/games
+pathrm /usr/games
+pathrm /snap/bin
 
 pathadd /usr/local/kubebuilder
 pathadd /usr/local/go/bin
 pathadd $HOME/go/bin
 pathadd $HOME/bin/rancher
-pathadd $HOME/bin
 pathadd $HOME/.local/bin
 #k8s autocomplete
 source <(kubectl completion bash)
@@ -42,3 +44,11 @@ export GONOPROXY=*.ubs.,*.swissbank. \
 export GOPROXY=https://it4it-nexus-tp-repo.swissbank.com/repository/group-lib-golang-go-oss,direct
 export GOPRIVATE=*.ubs.net,*.swissbank.com
 export GOSUMDB=off
+# istioctl compltion
+source <(istioctl completion bash)
+# EDITOR 
+export EDITOR=nvim
+# History
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#shopt -s histappend
+export HISTCONTROL='ignoreboth'
