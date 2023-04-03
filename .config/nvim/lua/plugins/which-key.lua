@@ -6,6 +6,7 @@ return {
       -- Register keys for LSP
       require("which-key").register({
         mode = { "n", "v" },
+        ["<leader>n"] = { name = "+[N]otes" },
         ["<leader>f"] = { name = "+[F]ind via telescope" },
         ["<leader>d"] = { name = "+LSP [D]ocument" },
         ["<leader>c"] = { name = "+LSP [C]ode Action" },
