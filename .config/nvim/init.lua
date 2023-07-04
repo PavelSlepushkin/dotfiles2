@@ -26,7 +26,7 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      -- 'j-hui/fidget.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -216,7 +216,7 @@ mason_lspconfig.setup_handlers {
 }
 
 -- Turn on lsp status information
-require('fidget').setup()
+-- require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'

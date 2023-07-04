@@ -3,3 +3,11 @@
 	email = pavel.slepushkin@ubs.com
 [push]
 	autoSetupRemote = true
+[merge]
+	tool = nvim
+[mergetool]
+	keepBackup = false
+[mergetool "nvim"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[init]
+	defaultBranch = master
