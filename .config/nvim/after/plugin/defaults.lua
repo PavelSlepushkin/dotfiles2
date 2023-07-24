@@ -10,8 +10,10 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 -- leader-s for search and replace current word
 --vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
--- system clipboard
-vim.opt.clipboard = "unnamedplus"
+-- system clipboard - turn it off for WSL
+-- vim.opt.clipboard = "unnamedplus"
+-- vim.keymap.set('x', '<leader>y', "\"+y")
+-- vim.keymap.set('n', '<leader>y', "\"+y")
 
 -- visial search and replace
 vim.keymap.set('x', '<Leader>/', '<Esc>/\\%V', { desc = 'Search in visial block' })
