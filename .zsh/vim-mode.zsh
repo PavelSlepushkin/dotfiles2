@@ -7,27 +7,11 @@ bindkey -M viins '\e.' insert-last-word
 # binds for autocomplete
 bindkey -M viins "^[[1;5C" forward-word
 bindkey -M viins "^[[1;5D" backward-word
-# ChatGPT implementation of show mode 
+# edit-command-line
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
-# function zle-line-init zle-keymap-select {
-#     VIM_PROMPT="%{$fg_bold[cyan]%} [% NORMAL]%  %{$reset_color%}"
-#     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
-#     zle reset-prompt
-# }
-#
-# function zle-line-init zle-keymap-select {
-#     case $KEYMAP in
-#         vicmd)      VIM_PROMPT="%{$fg_bold[cyan]%} [% NORMAL]%  %{$reset_color%}" ;;
-#         main|viins) VIM_PROMPT="%{$fg_bold[blue]%} [% INSERT]%  %{$reset_color%}" ;;
-#         *)          VIM_PROMPT="" ;;
-#     esac
-#     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
-#     zle reset-prompt
-# }
-#
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-# Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
         vicmd) echo -ne '\e[1 q';;      # block
