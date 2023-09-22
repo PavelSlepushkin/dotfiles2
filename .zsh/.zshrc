@@ -47,6 +47,7 @@ source /etc/zsh_command_not_found
 
 #Completions
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+source ~/istio-1.18.2/tools/_istioctl
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
